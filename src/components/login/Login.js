@@ -20,9 +20,9 @@ class Login extends Component {
         };
       }
       componentDidMount() { 
+        /*
         const { match: { params } } = this.props;
-        const nameCedi = params.id
-        
+        const nameCedi = params.id        
         localStorage.setItem("nameCedi", nameCedi);
         fetch(Const.urlrest + "/api/cedi/username?name="+ nameCedi,{
           headers: Const.myHeaders,
@@ -30,9 +30,12 @@ class Login extends Component {
           .then(response => response.json())
           .then(
               (result) => {
-                  localStorage.setItem("idCedi", result.data.id);
-                  localStorage.setItem("img", result.data.img);
-                  localStorage.setItem("color", result.data.color);
+                console.log(result)
+
+
+                  //localStorage.setItem("idCedi", result.data.id);
+                 // localStorage.setItem("img", result.data.img);
+                //  localStorage.setItem("color", result.data.color);
               },
               (error) => {
                   this.setState({
@@ -41,6 +44,7 @@ class Login extends Component {
                   });
               }
           )
+          */
             var el = document.getElementById('mggAlert');
             if (el) {
               el.addEventListener("click", closeAlertGeneral);
