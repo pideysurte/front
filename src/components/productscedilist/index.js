@@ -142,7 +142,7 @@ class ProductsCedi extends Component {
                     ) {
                         const data = new FormData(document.getElementById('formularioupdate'))
                         fetch(Const.urlrest + "/api/productscedi/update", {
-                                headers: Const.myHeaders,
+                                headers: Const.myHeadersPost,
                                 method: "PUT",
                                 body: data
                             })

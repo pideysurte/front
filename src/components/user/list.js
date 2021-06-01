@@ -134,7 +134,7 @@ class useradmin extends Component {
                                 }
                             }
                             fetch(Const.urlrest + "/api/useradmin/update", {
-                                headers: Const.myHeaders,
+                                headers: Const.myHeadersPost,
                                     method: "PUT",
                                     body: JSON.stringify(datos)
                                 })

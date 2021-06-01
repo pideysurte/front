@@ -193,7 +193,7 @@ class establishmentsList extends Component {
                                    Const.urlrest +
                                      "/api/establishmentsclientcedi/update",
                                    {
-                                    headers: Const.myHeaders,
+                                    headers: Const.myHeadersPost,
                                      method: "PUT",
                                      body: JSON.stringify(datos),
                                    }

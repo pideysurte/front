@@ -138,7 +138,7 @@ class avertisingcedi extends Component {
                         if (schedule.length >= 4) {
                                     const data = new FormData(document.getElementById('formularioupdate'));
                                     fetch(Const.urlrest + "/api/advertisingcedi/update", {     
-                                            headers: Const.myHeaders,                           
+                                            headers: Const.myHeadersPost,                           
                                             method: "PUT",
                                             body: data
                                         })

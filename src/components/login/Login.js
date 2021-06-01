@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Logologin from '../atoms/Logologin'
+import LogologinHome from '../atoms/LogologinHome'
 import '../../assets/css/Login.css';
 import {
   sha256
@@ -20,31 +20,7 @@ class Login extends Component {
         };
       }
       componentDidMount() { 
-        /*
-        const { match: { params } } = this.props;
-        const nameCedi = params.id        
-        localStorage.setItem("nameCedi", nameCedi);
-        fetch(Const.urlrest + "/api/cedi/username?name="+ nameCedi,{
-          headers: Const.myHeaders,
-          })
-          .then(response => response.json())
-          .then(
-              (result) => {
-                console.log(result)
-
-
-                  //localStorage.setItem("idCedi", result.data.id);
-                 // localStorage.setItem("img", result.data.img);
-                //  localStorage.setItem("color", result.data.color);
-              },
-              (error) => {
-                  this.setState({
-                      isLoaded: true,
-                      error
-                  });
-              }
-          )
-          */
+    
             var el = document.getElementById('mggAlert');
             if (el) {
               el.addEventListener("click", closeAlertGeneral);
@@ -74,11 +50,20 @@ class Login extends Component {
                 .then(
                   (result) => {
                     if (result.data != null) {
+                        console.log(result.data)
                         var misCedis = result.data
                         var option ="";
-                        misCedis.forEach( function(valor, indice, array) {
-                          option +="<option value='"+valor['idCedi']+"' data-img='"+valor['b2bCedi.img']+"' >"+valor['b2bCedi.name']+"</option>";                          
-                        })                        
+                        if(result.data[0].idCedi){
+                          localStorage.setItem("is", 1);
+                          misCedis.forEach( function(valor, indice, array) {
+                            option +="<option value='"+valor['idCedi']+"' data-img='"+valor['b2bCedi.img']+"' >"+valor['b2bCedi.name']+"</option>";                          
+                          })   
+                        }else{
+                          localStorage.setItem("is", 0);
+                          misCedis.forEach( function(valor, indice, array) {
+                            option +="<option value='"+valor['id']+"' data-img='"+valor['img']+"' >"+valor['name']+"</option>";                          
+                          })   
+                        }                                             
                         document.getElementById("cedilist").innerHTML = option;
                         $(".conselectorcedi").show()
                         $("#btngeneralEmail").hide()
@@ -102,14 +87,17 @@ class Login extends Component {
               localStorage.setItem("idCedi",idCedi)
               let email = document.getElementById("username").value
               let emailvalido = validarEmail(email)
-              let pass = document.getElementById("password").value
-              $( "#myselect" ).val();
+              let pass = document.getElementById("password").value            
+              
+              localStorage.setItem("idCedi", $("#cedilist option:selected").val());
+              localStorage.setItem("img", $("#cedilist option:selected").data("img"));
               if (emailvalido == "1" && pass.length >= 5 && pass.length <= 30) {
                 let password = sha256(pass)
                 var datos = {
                     email: email,
                     password: password,
-                    idCedi:  idCedi
+                    idCedi:  idCedi,
+                    isAdmin: localStorage.getItem("is")
                 }
 
                 fetch(Const.urlrest + "api/useradmin/logincedis", {
@@ -120,14 +108,13 @@ class Login extends Component {
                   .then(response => response.json())
                   .then(
                     (result) => {
-                      console.log(result)
-                      if (result.data != null) {
+                      if (result.data != null) {   
                         localStorage.setItem("id", result.data.id);
                         localStorage.setItem("email", result.data.email);
                         localStorage.setItem("name", result.data.name);
                         localStorage.setItem("token", result.data.token);
-                        localStorage.setItem("idCedi", result.data.idCedi);
-                        window.location.href = "/dashboard";
+                        
+                      window.location.href = "/dashboard";
 
                       } else {
                         alertaGeneral("Por favor revisa los datos")
@@ -171,7 +158,7 @@ class Login extends Component {
                             <div className="MuiCardContent-root">
                                  
                                     <div className="text-xs-center pb-xs">
-                                          <Logologin />
+                                          <LogologinHome  />
                                           <span
                                             className="MuiTypography-root MuiTypography-caption">Ingrese sus datos para
                                             continuar</span></div>

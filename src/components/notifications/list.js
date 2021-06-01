@@ -127,7 +127,7 @@ class avertisingcedi extends Component {
                             cri5: cri5
                         }
                                    fetch(Const.urlrest + "/api/notifications/update", { 
-                                            headers: Const.myHeaders,
+                                            headers: Const.myHeadersPost,
                                             method: "PUT",
                                             body: JSON.stringify(datos)
                                         })

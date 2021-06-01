@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Logologin from '../atoms/Logologin'
+import LogologinHome from '../atoms/LogologinHome'
 import '../../assets/css/Login.css';
 import {
   sha256
@@ -88,7 +88,7 @@ class Forgot extends Component {
                                         <div className="MuiCardContent-root">
                                               
                                                 <div className="text-xs-center pb-xs">
-                                                      <Logologin />
+                                                <LogologinHome  />
                                                       <span
                                                         className="MuiTypography-root MuiTypography-caption">Ingrese sus datos para
                                                         continuar</span></div>

@@ -108,7 +108,7 @@ class routescedi extends Component {
                     }
 
                     fetch(Const.urlrest + "/api/routescedi/update", {
-                            headers: Const.myHeaders,
+                            headers: Const.myHeadersPost,
                             method: "PUT",
                             body: JSON.stringify(datos)
                         })

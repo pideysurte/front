@@ -94,7 +94,7 @@ class Sidebar extends Component{
                                         <li><a href="./notifications">Crear</a></li>
                                     </ul>
                                 </li>
-                                <li id="ModUsuario" style={{display:'none'}}> <a  className="has-arrow itemparent " href="#nogo" aria-expanded="false"><i  className="fa fa-book"></i><span  className="hide-menu">Usuarios</span></a>
+                                <li id="ModUsuario" > <a  className="has-arrow itemparent " href="#nogo" aria-expanded="false"><i  className="fa fa-book"></i><span  className="hide-menu">Usuarios</span></a>
                                             <ul aria-expanded="false"  className="collapse">
                                                 <li id="ModUsuarioUserl"><a href="./userlist">Listar</a></li>
                                                 <li id="ModUsuarioUserc"><a href="./usercreate">Crear</a></li>

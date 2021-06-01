@@ -28,6 +28,8 @@ import Establishments from './components/establishments/index'
 import Establishmentslist from './components/establishments/list'
 import Notifications from './components/notifications'
 import Notificationslist from './components/notifications/list'
+import user from './components/user/index'
+import userlist from './components/user/list'
 function App() {
   return (
     <div >
@@ -57,12 +59,13 @@ function App() {
               <PublicRoute path="/comercial" component={Comercial} /> 
               <PublicRoute path="/comerciallist" component={ComercialList} /> 
               <PublicRoute path="/cediconfig" component={Cediconfig} />
-              <PublicRoute path="/establishmentslist" component={Establishmentslist} />  
+              <PublicRoute path="/stablishmentslist" component={Establishmentslist} />  
               <PublicRoute path="/establishments" component={Establishments} />  
               <PublicRoute path="/orders" component={Orders} /> 
               <PublicRoute path="/notifications" component={Notifications} />  
               <PublicRoute path="/notificationslist" component={Notificationslist} /> 
-              
+              <PublicRoute path="/usercreate" component={user} /> 
+              <PublicRoute path="/userlist" component={userlist} />                
             </Switch>
       </BrowserRouter>
     </div>

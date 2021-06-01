@@ -101,7 +101,7 @@ class configCedi extends Component {
             let lng = document.getElementById("updlng").value
             let radio = document.getElementById("updradio").value
             let emailServiceClient = document.getElementById("updemailServiceClient").value
-            
+            alert(1)
             if (lat != "" && lng != "" && radio != "") {
                 let coordinates = {
                     "lat": lat,
@@ -134,9 +134,9 @@ class configCedi extends Component {
                             coordinates: JSON.stringify(coordinates)
                         }
                     }
-
+                    console.log(datos)
                     fetch(Const.urlrest + "/api/cedi/update", {
-                            headers: Const.myHeaders,
+                            headers: Const.myHeadersPost,
                             method: "PUT",
                             body: JSON.stringify(datos)
                         })
@@ -145,7 +145,7 @@ class configCedi extends Component {
                             (result) => {
                                 console.log(result)
                                 alertaGeneral("Registro  Actualizado");
-                                window.location.reload(false);
+                             //   window.location.reload(false);
                             },
                             (error) => {
                                 console.log(error)
@@ -163,7 +163,7 @@ class configCedi extends Component {
         if (el) {
             el.addEventListener("click", updateForm);
         }
-        formEdit(1)
+        formEdit(localStorage.getItem("idCedi"))
 
     }
   render(){

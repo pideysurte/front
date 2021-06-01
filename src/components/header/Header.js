@@ -13,7 +13,7 @@ class Headerdashboard extends Component{
                    localStorage.removeItem('name');
                    localStorage.removeItem('id');
                    localStorage.removeItem('email');
-                   window.location.href = "/auth/"+nameCedi;
+                   window.location.href = "/";
                }
                 document.getElementById("exit").addEventListener("click",exitSite);
                $('input[type="text"]').on('input', function () {

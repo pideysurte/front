@@ -114,7 +114,7 @@ class detaillistpricescustom extends Component {
                         }
 
                         fetch(Const.urlrest + "/api/detaillistpricescustom/update", {
-                                headers: Const.myHeaders,
+                                headers: Const.myHeadersPost,
                                 method: "PUT",
                                 body: JSON.stringify(datos)
                             })

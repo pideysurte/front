@@ -61,7 +61,7 @@ class comerciales extends Component {
                 var datos = {
                     id: id
                 }
-                fetch(Const.urlrest + "/api/comercialcedi/destroy", {
+                fetch(Const.urlrest + "api/comercialcedi/destroy", {
                         headers: Const.myHeaders,
                         method: "DELETE",
                         body: JSON.stringify(datos)
@@ -108,8 +108,8 @@ class comerciales extends Component {
                btnupdate.style.display = "none";
            }
        })
-
-        fetch(Const.urlrest + "/api/comercialcedi",{
+        let idCedi = localStorage.getItem("idCedi");
+        fetch(Const.urlrest + "api/comercialcedi/"+idCedi,{
             headers: Const.myHeaders,
         })
             .then(response => response.json())
@@ -138,8 +138,8 @@ class comerciales extends Component {
                 if (valEmail) {
                         if (name.length >= 4 && phone.length >= 4) {
                             const data = new FormData(document.getElementById('formularioupdate'));
-                            fetch(Const.urlrest + "/api/comercialcedi/update", {
-                                    headers: Const.myHeaders,
+                            fetch(Const.urlrest + "api/comercialcedi/update", {
+                                    headers: Const.myHeadersPost,
                                     method: "PUT",
                                     body: data
                                 })
@@ -173,7 +173,7 @@ class comerciales extends Component {
       function formEdit(id) {
            window.scrollTo(0, 0);
            document.querySelector('.formupdate').style.display = 'block'
-            fetch(Const.urlrest + "/api/comercialcedi/read",{
+            fetch(Const.urlrest + "api/comercialcedi/read",{
                 headers: Const.myHeaders,
                 method: "POST",
                 body: JSON.stringify({

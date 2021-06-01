@@ -104,7 +104,7 @@ class subCategory extends Component {
                     };
 
                     fetch(Const.urlrest + "/api/subcategory/update", {
-                            headers: Const.myHeaders,
+                            headers: Const.myHeadersPost,
                             method: "PUT",
                             body: JSON.stringify(datos)
                         })
